@@ -1,0 +1,5 @@
+eval $(docker-machine env  Char)
+# check the env variables of Char 
+#docker-machine config  Char
+#chaeck the 4 variables
+#docker-machine env -u

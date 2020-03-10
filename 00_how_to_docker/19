@@ -1,0 +1,7 @@
+#You must have a copy of the sshfs binary locally to use the mount feature
+#you should install sshfs "brew install sshfs"
+mkdir mboulara && docker-machine ssh Char mkdir mboulara && docker-machine mount Char:/home/docker/mboulara mboulara
+echo 'from flask import Flask\napp = Flask(__name__)\n@app.route("/")\ndef hello_world():\n\treturn "<h1>Hello, World!</h1>"' > mboulara/hello.py 
+docker run --name Abathur  -v /home/docker/mboulara:/root -p 3000:3000 -dit python:2-slim
+docker exec Abathur pip install Flask
+docker exec -e FLASK_APP=/root/hello.py Abathur flask run --host=0.0.0.0 --port 3000

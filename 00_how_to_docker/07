@@ -1,0 +1,3 @@
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' overlord
+#older version also worked 
+#docker inspect --format '{{ .NetworkSettings.IPAddress }}' overlord
